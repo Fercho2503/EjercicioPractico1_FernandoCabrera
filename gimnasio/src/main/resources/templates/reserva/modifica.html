@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}">
+        <title>Editar Reserva</title>
+    </head>
+    <body>
+        <header th:replace="~{general/fragmentos :: header}"/>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST" th:action="@{/reserva/guardar}"
+                          th:object="${reserva}" class="was-validated">
+                        <input type="hidden" name="id" th:field="*{id}"/>
+                        <div class="row py-4 mb-4 bg-light">
+                            <div class="col-md-4 d-grid">
+                                <a th:href="@{/reserva/listado}" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left"></i> Regresar</a>
+                            </div>
+                            <div class="col-md-4 d-grid">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check"></i> Guardar</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header"><h4>Actualizar Reserva</h4></div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label>Nombre del Cliente</label>
+                                    <input type="text" class="form-control" name="nombreCliente"
+                                           th:field="*{nombreCliente}" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Fecha</label>
+                                    <input type="date" class="form-control" name="fecha"
+                                           th:field="*{fecha}" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Servicio</label>
+                                    <select name="servicioId" class="form-select" required>
+                                        <option th:each="s : ${servicios}"
+                                                th:value="${s.id}"
+                                                th:text="${s.nombre}"
+                                                th:selected="${s.id == reserva.servicio.id}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section th:replace="~{general/fragmentos :: mostrarToast}"/>
+        <footer th:replace="~{general/fragmentos :: footer}"/>
+    </body>
+</html>

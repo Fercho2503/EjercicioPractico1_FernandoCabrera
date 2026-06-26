@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <!-- Fragmento #1 head -->
+    <head th:fragment="head">
+        <title>Gimnasio Fitness</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <style>
+            body {
+                background-color: #2b2b2b;
+                color: #f0f0f0;
+            }
+            .bg-dark {
+                background-color: #b8963e !important;
+            }
+            .card {
+                background-color: #3a3a3a;
+                border-color: #555;
+                color: #f0f0f0;
+            }
+            .bg-light {
+                background-color: #3a3a3a !important;
+                color: #f0f0f0;
+            }
+            .table {
+                color: #f0f0f0;
+            }
+            .table-striped > tbody > tr:nth-of-type(odd) > * {
+                background-color: #fff8dc;
+                color: #2b2b2b;
+            }
+            .table-striped > tbody > tr:nth-of-type(even) > * {
+                background-color: #fff8dc;
+                color: #2b2b2b;
+            }
+            .table thead tr th {
+                background-color: #b8963e;
+                color: #fff;
+            }
+            .btn-warning {
+                background-color: #2e7d32 !important;
+                border-color: #2e7d32 !important;
+                color: #fff !important;
+            }
+        </style>
+    </head>
+
+    <!-- Fragmento #2 header -->
+    <header th:fragment="header">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand">Gimnasio Fitness Cabrera</a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2">
+                            <a class="nav-link" th:href="@{/categoria/listado}">Categorías</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" th:href="@{/servicio/listado}">Servicios</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" th:href="@{/reserva/listado}">Reservas</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" th:href="@{/contacto}">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="py-2 bg-dark text-white text-center">
+            <h1><i class="fas fa-dumbbell"></i> Gimnasio Fitness Cabrera</h1>
+        </section>
+    </header>
+
+    <!-- Fragmento #3 footer -->
+    <footer th:fragment="footer" class="p-2 mt-5 bg-dark text-white text-center">
+        <p class="lead">Gimnasio Fitness Cabrera - Fidelitas &copy; 2026</p>
+    </footer>
+
+    <!-- Fragmento #4 mostrarToast -->
+    <section th:fragment="mostrarToast">
+        <div aria-live="polite" aria-atomic="true"
+             class="position-fixed top-50 start-50 translate-middle" style="z-index: 1080;">
+            <div th:if="${error}" class="toast show" role="alert">
+                <div class="toast-header text-white bg-danger">
+                    <i class="fa-solid fa-bomb"></i> <strong class="me-auto"> Error</strong>
+                </div>
+                <div class="toast-body">
+                    <p>[[${error}]]</p>
+                    <div class="mt-2 pt-2 border-top text-center">
+                        <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="toast">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${todoOk}" class="toast show" role="status">
+                <div class="toast-header text-white bg-success">
+                    <i class="fa-solid fa-square-check"></i> <strong class="me-auto"> Éxito</strong>
+                </div>
+                <div class="toast-body">
+                    <p>[[${todoOk}]]</p>
+                    <div class="mt-2 pt-2 border-top text-center">
+                        <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="toast">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</html>

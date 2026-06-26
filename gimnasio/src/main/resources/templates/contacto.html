@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}">
+        <title>Contacto</title>
+    </head>
+    <body>
+        <header th:replace="~{general/fragmentos :: header}"/>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4><i class="fas fa-envelope"></i> Contacto</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" th:action="@{/contacto}">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Digite acá su nombre completo"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" placeholder="correo@ejemplo.com"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" placeholder="8888-8888"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mensaje</label>
+                                    <textarea class="form-control" rows="4"
+                                              placeholder="Explíquenos qué desea acá"></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-paper-plane"></i> Enviar mensaje
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4><i class="fas fa-map-marker-alt"></i> Más información</h4>
+                        </div>
+                        <div class="card-body">
+                            <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 2222-3333</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@gimnasiofitnesscabrera.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{general/fragmentos :: footer}"/>
+    </body>
+</html>

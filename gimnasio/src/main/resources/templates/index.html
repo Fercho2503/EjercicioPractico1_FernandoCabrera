@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}">
+        <title>Gimnasio Fitness</title>
+    </head>
+    <body>
+        <header th:replace="~{general/fragmentos :: header}"/>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Bienvenido a Gimnasio Fitness Cabrera</h2>
+                    <p class="lead">Tu centro de entrenamiento confianza para cumplir tus metas. 
+                        Contamos con las mejores clases y entrenadores para asegurate el alcanzar tu cuerpo soñado.</p>
+                </div>
+            </div>
+
+            <!-- Clase destacada -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card border-warning">
+                        <div class="card-header bg-warning text-dark">
+                            <h4><i class="fas fa-star"></i> Clase Destacada: HITT</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">El HIIT es un entrenamiento que consiste
+                                de intervalos de alta intensidad que queman grasa y mejoran la resistencia cardiovascular 
+                                en poco tiempo. Es de tus mejores elecciones para tu cuerpo soñado y 
+                                conseguir una condición implecable</p>
+                            <ul>
+                                <li>Poseemos horarios de lunes a viernes desde las 6:00 pm hasta las 9:00 pm</li>
+                                <li>Tenemos distintos niveles de dificultad al gusto</li>
+                            </ul>
+                            <!-- Video o iframe -->
+                            <div class="ratio ratio-16x9 mt-3">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/nbP7m0S0Ato?si=L6SQ0SwixFOrph3u&amp;start=27" 
+                                        title="YouTube video player" frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                                        picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{general/fragmentos :: footer}"/>
+    </body>
+</html>
